@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rialo Protocol | Poker Infrastructure</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <header class="navbar">
+            <img src="/assets/Logo + Wordmark 1.jpg" alt="Rialo Logo" class="brand-logo">
+            <div class="user-status">
+                <span id="username-display">Guest</span>
+                <span class="status-indicator"></span>
+            </div>
+        </header>
+
+        <main class="game-interface">
+            <div id="lobby-screen" class="active">
+                <div class="glass-panel">
+                    <img src="/assets/Logo 1.jpg" alt="Rialo Icon" class="lobby-icon">
+                    <h1>Rialo Poker Protocol</h1>
+                    <div class="input-group">
+                        <input type="text" id="username-input" placeholder="IDENTITY_STRING">
+                        <button id="join-btn" class="btn-primary">INITIATE CONNECTION</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="game-screen" class="hidden">
+                <div class="poker-table">
+                    <div class="table-surface">
+                        <div class="logo-watermark">
+                            <img src="/assets/Primary logo.jpg" alt="Watermark">
+                        </div>
+                        <div class="community-cards" id="community-cards"></div>
+                        <div class="pot-display">
+                            <span class="label">LIQUIDITY POOL</span>
+                            <span id="pot-amount">0</span>
+                        </div>
+                    </div>
+                    <div id="players-container"></div>
+                </div>
+
+                <div class="controls-bar">
+                    <div class="hand-display" id="my-hand"></div>
+                    <div class="actions">
+                        <button onclick="sendAction('fold')" class="btn-secondary">FOLD</button>
+                        <button onclick="sendAction('check')" class="btn-secondary">CHECK</button>
+                        <button onclick="sendAction('call')" class="btn-primary">CALL</button>
+                        <button onclick="sendAction('raise', 100)" class="btn-accent">RAISE</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="js/client.js"></script>
+</body>
+</html>
