@@ -1,0 +1,211 @@
+:root {
+    --rialo-black: #010101;
+    --rialo-mint: #a9ddd3;
+    --rialo-beige: #e8e3d5;
+    --glass-bg: rgba(232, 227, 213, 0.05);
+    --glass-border: rgba(169, 221, 211, 0.2);
+    --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    background-color: var(--rialo-black);
+    color: var(--rialo-beige);
+    font-family: var(--font-main);
+    height: 100vh;
+    overflow: hidden;
+}
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.navbar {
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.brand-logo {
+    height: 40px;
+    border-radius: 8px;
+}
+
+.glass-panel {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    padding: 40px;
+    border-radius: 24px;
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+    box-shadow: 0 0 30px rgba(169, 221, 211, 0.1);
+}
+
+.lobby-icon {
+    width: 80px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+}
+
+#lobby-screen {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+input {
+    background: transparent;
+    border: 1px solid var(--rialo-mint);
+    padding: 15px;
+    color: var(--rialo-mint);
+    font-family: monospace;
+    border-radius: 8px;
+    outline: none;
+}
+
+.btn-primary {
+    background: var(--rialo-mint);
+    color: var(--rialo-black);
+    border: none;
+    padding: 15px;
+    font-weight: 700;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-primary:hover {
+    box-shadow: 0 0 15px var(--rialo-mint);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: transparent;
+    border: 1px solid var(--rialo-beige);
+    color: var(--rialo-beige);
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-secondary:hover {
+    background: rgba(232, 227, 213, 0.1);
+}
+
+.poker-table {
+    position: relative;
+    width: 80%;
+    height: 60vh;
+    margin: 40px auto;
+    border-radius: 100px;
+    background: radial-gradient(circle at center, #1a1a1a 0%, #050505 100%);
+    border: 2px solid var(--glass-border);
+    box-shadow: 0 0 50px rgba(169, 221, 211, 0.05);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.table-surface {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-watermark img {
+    opacity: 0.1;
+    width: 200px;
+    mix-blend-mode: overlay;
+}
+
+.community-cards {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+    min-height: 90px;
+}
+
+.card {
+    width: 60px;
+    height: 90px;
+    background: var(--rialo-beige);
+    color: var(--rialo-black);
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+.pot-display {
+    position: absolute;
+    bottom: 30%;
+    text-align: center;
+    color: var(--rialo-mint);
+    font-family: monospace;
+}
+
+.controls-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px;
+    background: linear-gradient(to top, var(--rialo-black) 80%, transparent);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+.hand-display {
+    display: flex;
+    gap: 10px;
+}
+
+.actions {
+    display: flex;
+    gap: 15px;
+}
+
+.player-seat {
+    position: absolute;
+    background: var(--rialo-black);
+    border: 1px solid var(--rialo-mint);
+    padding: 10px;
+    border-radius: 12px;
+    text-align: center;
+    min-width: 100px;
+    transition: all 0.5s ease;
+}
+
+.player-seat.active-turn {
+    box-shadow: 0 0 20px var(--rialo-mint);
+    border-color: var(--rialo-beige);
+}
